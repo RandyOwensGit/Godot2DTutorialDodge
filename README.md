@@ -8,7 +8,7 @@
 <br />
 
 ## Project Checklist:
-- [x] ~~ Create README ~~
+- [x] ~~Create README~~
 - [ ] Fix Project Files
 - [ ] Loop music during gameplay
 - [ ] Fix Hitboxes
