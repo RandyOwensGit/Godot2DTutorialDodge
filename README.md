@@ -1,10 +1,6 @@
-<style>h4 { border-bottom: 0; } </style>
-
 ### WORK IN PROGRESS!
 
 ## Learning Godot & Game Dev Project
-
-<br />
 
 #### Based on the 2D tutorial project provided by Godot found [here.](https://docs.godotengine.org/en/stable/getting_started/first_2d_game/index.html)
 
