@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://cf1l2bythxh70"]
+
+[ext_resource type="Script" path="res://Main.gd" id="1_2j4v7"]
+[ext_resource type="PackedScene" uid="uid://b45ny7ws3qv64" path="res://Player.tscn" id="1_2ulkd"]
+[ext_resource type="PackedScene" uid="uid://bj5e7dtr6e26k" path="res://mob.tscn" id="2_pr8ex"]
+[ext_resource type="PackedScene" uid="uid://ch8068hbvi45k" path="res://Hud.tscn" id="4_py8dw"]
+[ext_resource type="AudioStream" uid="uid://cctmm533756dn" path="res://Music/gameover.wav" id="5_cjj43"]
+[ext_resource type="AudioStream" uid="uid://cggkb1s2o2tlh" path="res://Music/chase-priest.mp3" id="5_dq333"]
+[ext_resource type="AudioStream" uid="uid://difiy8a47pip6" path="res://Music/menutrimmed.mp3" id="6_jhn5y"]
+
+[sub_resource type="Curve2D" id="Curve2D_tb2dx"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 416, 0, 0, 0, 0, 0, 416, 720, 0, 0, 0, 0, 0, 720, 0, 0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[node name="Main" type="Node"]
+script = ExtResource("1_2j4v7")
+mob_scene = ExtResource("2_pr8ex")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427534, 0.357317, 1, 1)
+
+[node name="Player" parent="." instance=ExtResource("1_2ulkd")]
+
+[node name="MobTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="ScoreTimer" type="Timer" parent="."]
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(240, 450)
+
+[node name="MobPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_tb2dx")
+
+[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
+
+[node name="HUD" parent="." instance=ExtResource("4_py8dw")]
+
+[node name="GameMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_dq333")
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_cjj43")
+
+[node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_jhn5y")
+
+[connection signal="hit" from="Player" to="." method="game_over"]
+[connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
+[connection signal="start_game" from="HUD" to="." method="new_game"]
