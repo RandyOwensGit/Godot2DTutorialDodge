@@ -63,19 +63,10 @@ func _on_body_entered(body):
 	
 	# Must be deferred as we can't change physics properties on a physics callback
 	# Disables the player collision (player is dead)
-	$CollisionShape2D.set_deferred("disabled", true)
+	$CollisionPolygon2D.set_deferred("disabled", true)
 
 # Function that resets player when starting new game
 func start(pos):
 	position = pos
 	show()
-	$CollisionShape2D.disabled = false
-
-
-
-
-
-
-
-
-
+	$CollisionPolygon2D.disabled = false

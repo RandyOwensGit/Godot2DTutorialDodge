@@ -9,15 +9,19 @@
 
 ## Project Checklist:
 - [x] ~~Create README~~
-- [ ] Fix Project Files
-- [ ] Loop music during gameplay
-- [ ] Fix Hitboxes
+- [x] ~~Fix Project Files~~
+- [x] ~~Loop music during gameplay~~
+- [ ] Fix Hitboxes - Needed to switch from an AnimatedSprite2D node to an AnimationPlayer node
+	- [x] - ~~Player Hitbox~~
+	- [ ] - Enemy Hitbox
 - [ ] Make the game scale up differently - slower
 - [ ] Add a personal scoreboard
+- [ ] Settings Screen - Volume editor
 - [ ] Get game running on Itch.io
 - [ ] Create a multiplayer scoreboard
 - [ ] Add more music!
 - [ ] Implement Difficulty Select - Change speed & rate of enemies spawning
+- [ ] Powerups! - Speed boost, speed decrease, (more health, heal - if adding health system), make player invincible, 
 
 Potential List:
 - [ ] Different enemy types - (Smaller & faster, Larger and slower, etc.)
