@@ -12,9 +12,9 @@
 - [x] ~~Fix Project Files~~
 - [x] ~~Loop music during gameplay~~
 - [x] ~~Use AnimationPlayer node instead of AnimatedSprite2D (creating dynamic hit registration)
-- [ ] Fix Hitboxes:
-	- [ ] - ~~Player Hitbox~~
-	- [ ] - Enemy Hitbox
+- [x] Fix Hitboxes:
+	- [x] - ~~Player Hitbox~~
+	- [x] - Enemy Hitbox
 - [ ] Make the game scale up differently - slower
 - [ ] Add a personal scoreboard
 - [ ] Settings Screen - Volume editor
