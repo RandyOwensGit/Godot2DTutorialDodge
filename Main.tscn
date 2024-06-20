@@ -9,7 +9,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_tb2dx"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 416, 0, 0, 0, 0, 0, 416, 720, 0, 0, 0, 0, 0, 720, 0, 0, 0, 0, 0, 0)
+"points": PackedVector2Array(0, 0, 0, 0, -53.1171, -32, 0, 0, 0, 0, 520, -32, 0, 0, 0, 0, 520, 752, 0, 0, 0, 0, -48, 752, 0, 0, 0, 0, -53.1171, -32)
 }
 point_count = 5
 
@@ -44,20 +44,26 @@ one_shot = true
 position = Vector2(240, 450)
 
 [node name="MobPath" type="Path2D" parent="."]
+position = Vector2(11.9014, 1.90735e-06)
+scale = Vector2(0.977113, 1)
 curve = SubResource("Curve2D_tb2dx")
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
+position = Vector2(-53.1171, -32)
 
 [node name="HUD" parent="." instance=ExtResource("4_py8dw")]
 
 [node name="GameMusic" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamMP3_rajoq")
+volume_db = -24.36
 
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_cjj43")
+volume_db = -25.297
 
 [node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_jhn5y")
+volume_db = -28.108
 
 [connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]

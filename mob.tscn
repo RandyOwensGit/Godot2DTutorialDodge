@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bj5e7dtr6e26k"]
+[gd_scene load_steps=14 format=3 uid="uid://bj5e7dtr6e26k"]
 
 [ext_resource type="Texture2D" uid="uid://d3pybxkkxjf7q" path="res://art/enemyFlyingAlt_1.png" id="1_5y1lk"]
 [ext_resource type="Script" path="res://mob.gd" id="1_hn3at"]
@@ -44,25 +44,193 @@ animations = [{
 "speed": 3.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s6pjt"]
-radius = 36.0
-height = 104.0
+[sub_resource type="Animation" id="Animation_8fqqp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"swim"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionPolygon2D:polygon")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [PackedVector2Array(-35.0092, 39.3728, -35.0142, 44.0282, -33.9791, 47.0516, -31.0412, 49.458, -25.2141, 49.0607, -3.49512, 27.6065, 6.84972, 29.8211, 17.6189, 27.48, 27.6388, 20.1757, 33.4447, 11.0923, 35.1303, 3.69435, 35.0366, -3.98447, 33.4447, -11.2887, 29.7926, -17.3756, 25.4849, -21.8705, 21.2709, -25.0544, 9.93999, -29.1748, -3.23031, -27.3531, -25.8763, -48.8072, -30.2466, -49.0721, -33.3236, -47.6227, -35.0142, -44.5694, -35.0142, -39.0072, -11.0438, -15.1693, -11.3087, 16.0849)]
+}
+
+[sub_resource type="Animation" id="Animation_vbavb"]
+resource_name = "fly"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"fly", &"fly"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionPolygon2D:polygon")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [PackedVector2Array(-35.0092, 39.3728, -35.0142, 44.0282, -33.9791, 47.0516, -31.0412, 49.458, -25.2141, 49.0607, -3.49512, 27.6065, 6.84972, 29.8211, 17.6189, 27.48, 27.6388, 20.1757, 33.4447, 11.0923, 35.1303, 3.69435, 35.0366, -3.98447, 33.4447, -11.2887, 29.7926, -17.3756, 25.4849, -21.8705, 21.2709, -25.0544, 9.93999, -29.1748, -3.23031, -27.3531, -25.8763, -48.8072, -30.2466, -49.0721, -33.3236, -47.6227, -35.0142, -44.5694, -35.0142, -39.0072, -11.0438, -15.1693, -11.3087, 16.0849), PackedVector2Array(-17.2931, 60.4689, -13.6512, 60.1716, -10.0836, 56.0837, -9.86061, 28.9549, -4.21187, 29.9955, 5.74775, 27.617, 12.0654, 23.8264, 17.0098, 18.6544, 20.7108, 12.3548, 23.0731, 6.21267, 23.1519, -3.63046, 21.1833, -10.3238, 16.9036, -18.0318, 10.1329, -24.2621, 1.06525, -28.4987, -9.52736, -28.4352, -9.99983, -53.3974, -11.181, -57.4134, -14.882, -60.3269, -18.9768, -60.3269, -23.3865, -55.681, -23.2392, 55.5634, -20.7864, 58.6107)]
+}
+
+[sub_resource type="Animation" id="Animation_sk738"]
+resource_name = "swim"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"swim", &"swim"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionPolygon2D:polygon")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [PackedVector2Array(-17.2764, 5.2176, -17.3815, 26.5553, -16.5406, 29.4985, -13.8077, 31.0752, 16.51, 31.4012, 25.7128, 28.0977, 33.4997, 22.1985, 38.927, 15.1194, 42.4817, 5.65537, 42.4817, -4.25588, 39.5863, -14.2785, 33.7954, -22.0739, 25.3319, -28.5329, 16.5343, -31.2056, -14.0904, -30.9828, -17.4312, -27.3079, -17.3198, -4.36723, -22.2198, -10.1581, -31.1288, -15.2807, -40.0378, -17.508, -42.7104, -13.2762, -42.4877, -7.37401, -42.1536, 4.65312, -42.9238, 12.0499, -40.5062, 17.7259, -34.5148, 16.5697, -25.7905, 12.5755), PackedVector2Array(-17.4867, 12.1551, -17.3815, 26.5553, -16.5406, 29.4985, -13.8077, 31.0752, 16.51, 31.4012, 25.7128, 28.0977, 33.4997, 22.1985, 38.927, 15.1194, 42.4817, 5.65537, 42.4817, -4.25588, 39.5863, -14.2785, 33.7954, -22.0739, 25.3207, -28.4248, 16.5343, -31.2056, -14.0904, -30.9828, -17.4312, -27.3079, -17.7574, -12.4449, -23.8199, -19.8199, -33.2574, -25.6324, -40.0074, -27.2574, -42.9449, -22.0699, -42.5074, -13.8824, -40.3199, -8.25743, -33.5699, -4.88243, -32.6949, 4.43007, -40.1949, 7.93007, -42.6949, 13.4926, -42.6949, 21.8051, -40.1324, 27.4301, -31.4666, 24.5583, -22.2168, 18.2516)]
+}
+
+[sub_resource type="Animation" id="Animation_mlauo"]
+resource_name = "walk"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"walk", &"walk"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionPolygon2D:polygon")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [PackedVector2Array(-19.3282, 31.2149, 16.51, 31.4012, 25.7128, 28.0977, 33.4997, 22.1985, 38.927, 15.1194, 42.4817, 5.65537, 42.4817, -4.25588, 39.5863, -14.2785, 33.7954, -22.0739, 25.3207, -28.4248, 16.5343, -31.2056, -14.0904, -30.9828, -19.8294, -31.0367, -23.1702, -28.0299, -23.3373, -13.7756, -39.0394, -13.4972, -42.7143, -10.1563, -42.603, -5.42338, -40.3757, -2.86204, -40.487, 0.924282, -42.77, 3.42994, -42.77, 7.49466, -40.7098, 10.3344, -38.3155, 11.6708, -23.56, 11.6708, -23.3929, 27.7069), PackedVector2Array(-22.0246, 31.0309, 14.3205, 31.2539, 24.3545, 27.2403, 31.3411, 21.8889, 36.9898, 14.5307, 40.1858, 5.5373, 40.1858, -3.7534, 37.8817, -13.0441, 32.9541, -20.5072, 24.8433, -27.2793, 15.3939, -30.9803, -21.7346, -30.8394, -25.4804, -27.3746, -25.855, -17.6356, -36.6667, -20.4766, -40.3087, -16.6117, -40.5316, -12.0035, -38.5992, -10.1454, -25.5179, -5.98315, -25.7409, 3.75349, -37.187, 7.09813, -40.5316, 10.1455, -40.16, 14.5307, -37.9302, 17.4294, -34.9572, 18.247, -25.6665, 15.6456, -25.8152, 27.166)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x53jw"]
+_data = {
+"RESET": SubResource("Animation_8fqqp"),
+"fly": SubResource("Animation_vbavb"),
+"swim": SubResource("Animation_sk738"),
+"walk": SubResource("Animation_mlauo")
+}
 
 [node name="Mob" type="RigidBody2D" groups=["mobs"]]
+position = Vector2(0.132431, 0.132431)
 collision_mask = 0
 gravity_scale = 0.0
 script = ExtResource("1_hn3at")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.75, 0.75)
+scale = Vector2(0.65, 0.65)
 sprite_frames = SubResource("SpriteFrames_7jy6g")
-animation = &"fly"
+animation = &"swim"
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_s6pjt")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_x53jw")
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-35.0092, 39.3728, -35.0142, 44.0282, -33.9791, 47.0516, -31.0412, 49.458, -25.2141, 49.0607, -3.49512, 27.6065, 6.84972, 29.8211, 17.6189, 27.48, 27.6388, 20.1757, 33.4447, 11.0923, 35.1303, 3.69435, 35.0366, -3.98447, 33.4447, -11.2887, 29.7926, -17.3756, 25.4849, -21.8705, 21.2709, -25.0544, 9.93999, -29.1748, -3.23031, -27.3531, -25.8763, -48.8072, -30.2466, -49.0721, -33.3236, -47.6227, -35.0142, -44.5694, -35.0142, -39.0072, -11.0438, -15.1693, -11.3087, 16.0849)
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

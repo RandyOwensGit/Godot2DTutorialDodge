@@ -34,10 +34,10 @@ func _process(delta):
 	# $ is the relative path
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
-		$AnimatedSprite2D.play()
+		
 	else:
-		$AnimatedSprite2D.stop()
-	
+		$AnimationPlayer.stop()
+		
 	# updating player position
 	# delta is 'frame length' - that way if frame times change then it stays consistent 
 	position += velocity * delta 
@@ -47,23 +47,42 @@ func _process(delta):
 	
 	# Changing animation direction for walking right/left
 	if velocity.x != 0:
-		$AnimatedSprite2D.animation = "walk"
-		$AnimatedSprite2D.flip_v = false
-		$AnimatedSprite2D.flip_h = velocity.x < 0
+		PlayAnimation("walk")
+		scale.x = 0.8
+		if velocity.x < 0:
+			scale.x = -0.8
 		
 		# Changing animation direction for going up/down
 	elif velocity.y != 0:
-		$AnimatedSprite2D.animation = "up"
-		$AnimatedSprite2D.flip_v = velocity.y > 0
+		PlayAnimation("up")
+		scale.y = 0.8
+		if velocity.y > 0:
+			scale.y = -0.8
+		
+	
+	# Resets character to being upward
+	if velocity.x != 0:
+		scale.y = 0.8
 	
 
+# Animation Player
+func PlayAnimation(String):
+	if String == "walk":
+		$AnimationPlayer.play("walk")
+		
+	elif String == "up":
+		$AnimationPlayer.play("up")
+	
+	pass
+
 func _on_body_entered(body):
-	hide() # Player disappears after being hit
-	hit.emit()
+	#hide() # Player disappears after being hit
+	#hit.emit()
 	
 	# Must be deferred as we can't change physics properties on a physics callback
 	# Disables the player collision (player is dead)
-	$CollisionPolygon2D.set_deferred("disabled", true)
+	#$CollisionPolygon2D.set_deferred("disabled", true)
+	pass
 
 # Function that resets player when starting new game
 func start(pos):
