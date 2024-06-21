@@ -17,7 +17,7 @@
 	- [x] - Enemy Hitbox
 - [ ] Make the game scale up differently - slower
 - [ ] Add a personal scoreboard
-- [ ] Settings Screen - Volume editor
+- [x] Settings Screen - Volume editor
 - [ ] Refactor & reformat game code (More independent functions, classes, variables, reduce magic numbers, etc.)
 - [ ] Get game running on Itch.io
 - [ ] Create a multiplayer scoreboard

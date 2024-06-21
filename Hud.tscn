@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ch8068hbvi45k"]
+[gd_scene load_steps=6 format=3 uid="uid://ch8068hbvi45k"]
 
 [ext_resource type="FontFile" uid="uid://brtb72jyxxtj1" path="res://fonts/Xolonium-Regular.ttf" id="1_2ue24"]
 [ext_resource type="Script" path="res://Hud.gd" id="1_61r4l"]
+[ext_resource type="PackedScene" uid="uid://cp55naw0tpbsv" path="res://h_slider.tscn" id="3_3o42m"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_hgd0k"]
 action = &"start_game"
@@ -66,6 +67,13 @@ text = "Start"
 [node name="MessageTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="masterHSlider" parent="." instance=ExtResource("3_3o42m")]
+offset_left = 88.0
+offset_top = 104.0
+offset_right = 400.0
+offset_bottom = 120.0
+audio_bus_master = "Master"
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]

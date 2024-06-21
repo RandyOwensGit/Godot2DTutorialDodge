@@ -48,21 +48,21 @@ func _process(delta):
 	# Changing animation direction for walking right/left
 	if velocity.x != 0:
 		PlayAnimation("walk")
-		scale.x = 0.8
+		scale.x = 0.85
 		if velocity.x < 0:
-			scale.x = -0.8
+			scale.x = -0.85
 		
 		# Changing animation direction for going up/down
 	elif velocity.y != 0:
 		PlayAnimation("up")
-		scale.y = 0.8
+		scale.y = 0.85
 		if velocity.y > 0:
-			scale.y = -0.8
+			scale.y = -0.85
 		
 	
 	# Resets character to being upward
 	if velocity.x != 0:
-		scale.y = 0.8
+		scale.y = 0.85
 	
 
 # Animation Player
@@ -76,12 +76,12 @@ func PlayAnimation(String):
 	pass
 
 func _on_body_entered(body):
-	#hide() # Player disappears after being hit
-	#hit.emit()
+	hide() # Player disappears after being hit
+	hit.emit()
 	
 	# Must be deferred as we can't change physics properties on a physics callback
 	# Disables the player collision (player is dead)
-	#$CollisionPolygon2D.set_deferred("disabled", true)
+	$CollisionPolygon2D.set_deferred("disabled", true)
 	pass
 
 # Function that resets player when starting new game

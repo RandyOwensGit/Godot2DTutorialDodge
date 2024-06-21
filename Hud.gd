@@ -45,3 +45,6 @@ func _on_start_button_pressed():
 # hide message
 func _on_message_timer_timeout():
 	$Message.hide()
+
+func _on_h_slider_value_changed(value):
+	pass # Replace with function body.
