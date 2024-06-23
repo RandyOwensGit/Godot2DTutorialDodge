@@ -32,6 +32,7 @@ func show_game_over():
 	# Show Start button on main screen after short pause
 	await get_tree().create_timer(1.0).timeout
 	$MainMenuLayer/StartButton.show()
+	$MainMenuLayer/SettingsButton.show()
 
 # Score Update function
 func update_score(score):
@@ -40,7 +41,7 @@ func update_score(score):
 # Hide start button & start game
 func _on_start_button_pressed():
 	$MainMenuLayer/StartButton.hide()
-	$MainMenuLayer/StartButton.hide()
+	$MainMenuLayer/SettingsButton.hide()
 	start_game.emit()
 
 # hide message

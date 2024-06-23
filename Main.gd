@@ -38,6 +38,7 @@ func game_over():
 func new_game():
 	
 	score = 0
+	$MobTimer.wait_time = 0.7
 	$Player.start($StartPosition.position)
 	$StartTimer.start()
 	
@@ -58,6 +59,30 @@ func _on_score_timer_timeout():
 	
 	# Update HUD
 	$HUD.update_score(score)
+	
+	print($MobTimer.wait_time)
+	
+	# Changing Mob Timer spawns depending on player score
+	if score + 1 > 5:
+		$MobTimer.wait_time = 0.6
+	if score + 1 > 10: 
+		$MobTimer.wait_time = 0.5
+	if score + 1 > 20:
+		$MobTimer.wait_time = 0.4
+	if score + 1 > 30: 
+		$MobTimer.wait_time = 0.3
+	if score + 1 > 35: 
+		$MobTimer.wait_time = 0.25
+	if score + 1 > 40: 
+		$MobTimer.wait_time = 0.20
+	if score + 1 > 45: 
+		$MobTimer.wait_time = 0.175
+	if score + 1 > 55: 
+		$MobTimer.wait_time = 0.15
+	if score + 1 > 70: 
+		$MobTimer.wait_time = 0.10
+	if score + 1 > 70: 
+		$MobTimer.wait_time = 0.05
 
 func _on_start_timer_timeout():
 	$MobTimer.start()

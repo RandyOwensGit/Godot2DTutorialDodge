@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://ch8068hbvi45k"]
+[gd_scene load_steps=8 format=3 uid="uid://ch8068hbvi45k"]
 
 [ext_resource type="FontFile" uid="uid://brtb72jyxxtj1" path="res://fonts/Xolonium-Regular.ttf" id="1_2ue24"]
 [ext_resource type="Script" path="res://Hud.gd" id="1_61r4l"]
+[ext_resource type="Theme" uid="uid://t31wjf3pc0ic" path="res://art/Default.tres" id="3_1iesd"]
 [ext_resource type="PackedScene" uid="uid://dt5yyhum87onh" path="res://volume_slider.tscn" id="4_mnux1"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_hgd0k"]
@@ -65,6 +66,7 @@ offset_right = 100.0
 offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("3_1iesd")
 theme_override_fonts/font = ExtResource("1_2ue24")
 theme_override_font_sizes/font_size = 64
 shortcut = SubResource("Shortcut_wf66q")
@@ -79,6 +81,7 @@ offset_left = 10.0
 offset_top = 10.0
 offset_right = 110.0
 offset_bottom = 50.0
+theme = ExtResource("3_1iesd")
 text = "Settings"
 
 [node name="SettingsMenuLayer" type="CanvasLayer" parent="."]
@@ -110,6 +113,7 @@ offset_top = 50.0
 offset_right = 50.0
 offset_bottom = 90.0
 grow_horizontal = 2
+theme = ExtResource("3_1iesd")
 text = "Return"
 
 [node name="VolumeSlider" parent="SettingsMenuLayer" instance=ExtResource("4_mnux1")]

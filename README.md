@@ -15,7 +15,7 @@
 - [x] Fix Hitboxes:
 	- [x] - ~~Player Hitbox~~
 	- [x] - Enemy Hitbox
-- [ ] Make the game scale up differently - slower
+- [x] Make the game scale up differently - slower
 - [ ] Add a personal scoreboard
 - [x] Settings Screen - Volume editor
 - [ ] Refactor & reformat game code (More independent functions, classes, variables, reduce magic numbers, etc.)
@@ -28,6 +28,7 @@
 
 Potential List:
 - [ ] Different enemy types - (Smaller & faster, Larger and slower, etc.)
+- [ ] Add voice lines (Big Enemy Incoming!, Speed BOOOOST!)
 - [ ] Add earned currency
 - [ ] Purchase character customization unlocks
 - [ ] Customizable background
