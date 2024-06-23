@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7og14s0iibpk"]
+
+[ext_resource type="PackedScene" uid="uid://dt5yyhum87onh" path="res://volume_slider.tscn" id="1_2i7re"]
+[ext_resource type="FontFile" uid="uid://brtb72jyxxtj1" path="res://fonts/Xolonium-Regular.ttf" id="2_ptuhm"]
+
+[node name="Settings_Canvas" type="CanvasLayer"]
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -40.0
+offset_top = 40.0
+offset_right = 40.0
+offset_bottom = 80.0
+grow_horizontal = 2
+text = "Return"
+
+[node name="VolumeSlider" parent="." instance=ExtResource("1_2i7re")]
+visible = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -184.0
+offset_top = -8.0
+offset_right = 184.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.5
+offset_top = -80.0
+offset_right = 62.5
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_ptuhm")
+text = "Volume Slider"
+horizontal_alignment = 1
+vertical_alignment = 1

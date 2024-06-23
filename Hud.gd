@@ -13,9 +13,9 @@ func _process(delta):
 
 # "Get Ready" Message display
 func show_message(text):
-	$Message.text = text
-	$Message.show()
-	$MessageTimer.start()
+	$MainMenuLayer/TitleLabel.text = text
+	$MainMenuLayer/TitleLabel.show()
+	$MainMenuLayer/MessageTimer.start()
 
 # Player Loss Process
 # Shows "Game Over" for 2 seconds and then return to title screen
@@ -23,28 +23,36 @@ func show_game_over():
 	show_message("Game Over")
 	
 	# Wait until MessageTimer has counted down 
-	await $MessageTimer.timeout
+	await $MainMenuLayer/MessageTimer.timeout
 	
-	$Message.text = "Dodge the Creeps!"
-	$Message.show()
+	$MainMenuLayer/TitleLabel.text = "Dodge the Creeps!"
+	$MainMenuLayer/TitleLabel.show()
 	
 	# Make a one-shot timer and wait for it to finish
 	# Show Start button on main screen after short pause
 	await get_tree().create_timer(1.0).timeout
-	$StartButton.show()
+	$MainMenuLayer/StartButton.show()
 
 # Score Update function
 func update_score(score):
-	$ScoreLabel.text = str(score)
+	$MainMenuLayer/ScoreLabel.text = str(score)
 
 # Hide start button & start game
 func _on_start_button_pressed():
-	$StartButton.hide()
+	$MainMenuLayer/StartButton.hide()
+	$MainMenuLayer/StartButton.hide()
 	start_game.emit()
 
 # hide message
 func _on_message_timer_timeout():
-	$Message.hide()
+	$MainMenuLayer/TitleLabel.hide()
 
-func _on_h_slider_value_changed(value):
-	pass # Replace with function body.
+# Go to settings screen
+func _on_settings_button_pressed():
+	$MainMenuLayer.hide()
+	$SettingsMenuLayer.show()
+
+# Return Button on Menu
+func _on_return_button_pressed():
+	$SettingsMenuLayer.hide()
+	$MainMenuLayer.show()

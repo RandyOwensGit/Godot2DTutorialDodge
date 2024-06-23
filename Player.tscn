@@ -162,6 +162,7 @@ _data = {
 position = Vector2(-2.27374e-13, 0)
 scale = Vector2(0.85, 0.85)
 script = ExtResource("1_nmkb1")
+speed = 350
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
