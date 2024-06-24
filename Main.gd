@@ -36,6 +36,7 @@ func game_over():
 
 # Game Setup
 func new_game():
+	print("Hello?")
 	
 	score = 0
 	$MobTimer.wait_time = 0.7
@@ -59,8 +60,6 @@ func _on_score_timer_timeout():
 	
 	# Update HUD
 	$HUD.update_score(score)
-	
-	print($MobTimer.wait_time)
 	
 	# Changing Mob Timer spawns depending on player score
 	if score + 1 > 5:
@@ -114,8 +113,3 @@ func _on_mob_timer_timeout():
 	# Spawn the mob by adding it to the Main scene
 	add_child(mob)
 	
-
-
-
-
-

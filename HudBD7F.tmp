@@ -18,7 +18,10 @@ font_size = 24
 [node name="HUDMaster" type="CanvasLayer"]
 script = ExtResource("1_61r4l")
 
-[node name="ScoreLabel" type="Label" parent="."]
+[node name="MainMenuLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ScoreLabel" type="Label" parent="MainMenuLayer"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -32,8 +35,6 @@ theme_override_font_sizes/font_size = 64
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="MainMenuLayer" type="CanvasLayer" parent="."]
 
 [node name="TitleLabel" type="Label" parent="MainMenuLayer"]
 anchors_preset = 8
@@ -141,7 +142,6 @@ grow_vertical = 2
 value = 1.0
 
 [node name="LeaderboardLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="ReturnButton" type="Button" parent="LeaderboardLayer"]
 anchors_preset = 5
@@ -155,7 +155,7 @@ grow_horizontal = 2
 theme = ExtResource("3_1iesd")
 text = "Return"
 
-[node name="PlayerHighscoresLabel" type="Label" parent="LeaderboardLayer"]
+[node name="PlayerScoresLabel" type="Label" parent="LeaderboardLayer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -177,12 +177,26 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -90.0
+offset_top = -170.0
+offset_right = 90.0
+offset_bottom = -130.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Add Current Score"
+
+[node name="WriteButton" type="Button" parent="LeaderboardLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -90.0
 offset_top = -112.0
 offset_right = 90.0
 offset_bottom = -72.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "Add Current Score"
+text = "Write to File"
 
 [connection signal="pressed" from="MainMenuLayer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="timeout" from="MainMenuLayer/MessageTimer" to="." method="_on_message_timer_timeout"]
@@ -190,4 +204,6 @@ text = "Add Current Score"
 [connection signal="pressed" from="MainMenuLayer/LeaderboardButton" to="." method="_on_leaderboard_button_pressed"]
 [connection signal="pressed" from="SettingsMenuLayer/ReturnButton" to="." method="_on_return_button_pressed"]
 [connection signal="pressed" from="LeaderboardLayer/ReturnButton" to="." method="_on_return_button_pressed"]
+[connection signal="pressed" from="LeaderboardLayer/AddScoreButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="LeaderboardLayer/AddScoreButton" to="." method="_on_add_score_button_pressed"]
+[connection signal="pressed" from="LeaderboardLayer/WriteButton" to="." method="_on_write_button_pressed"]
